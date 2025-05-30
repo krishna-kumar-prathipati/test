@@ -14,7 +14,7 @@ spec:
                 - path: clusters/*
           - list:
               elements:
-                - component: istio-base
+                - component: base
                   wave: "0"
                 # - component: istiod
                 #   wave: "1"
