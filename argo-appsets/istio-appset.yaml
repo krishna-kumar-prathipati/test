@@ -5,10 +5,13 @@ metadata:
   namespace: argocd
 spec:
   generators:
-    - merge:
-        mergeKeys:
-          - path.basename
+    - matrix:
         generators:
+          - git:
+              repoURL: https://github.com/krishna-kumar-prathipati/test
+              revision: HEAD
+              directories:
+                - path: clusters/*
           - list:
               elements:
                 - component: istio-base
@@ -17,11 +20,6 @@ spec:
                   wave: "1"
                 - component: gateway
                   wave: "2"
-          - git:
-              repoURL: https://github.com/krishna-kumar-prathipati/test
-              revision: HEAD
-              directories:
-                - path: clusters/*
   template:
     metadata:
       name: '{{path.basename}}-{{component}}'
