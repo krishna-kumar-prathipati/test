@@ -1,0 +1,19 @@
+global:
+  istioNamespace: istio-system
+  proxy:
+    autoInject: disabled
+
+pilot:
+  autoscaleEnabled: true
+  traceSampling: 100.0
+  resources:
+    requests:
+      cpu: 500m
+      memory: 512Mi
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+
+meshConfig:
+  enablePrometheusMerge: true
+  accessLogFile: /dev/stdout
