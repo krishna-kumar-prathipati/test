@@ -5,22 +5,23 @@ metadata:
   namespace: argocd
 spec:
   generators:
-    - list:
-        elements:
-          - component: istio-base
-            wave: "0"
-          - component: istiod
-            wave: "1"
-          - component: gateway
-            wave: "2"
-    - git:
-        repoURL: https://github.com/your-org/gitops-istio-multicluster
-        revision: HEAD
-        directories:
-          - path: clusters/*
     - merge:
         mergeKeys:
           - path.basename
+        generators:
+          - list:
+              elements:
+                - component: istio-base
+                  wave: "0"
+                - component: istiod
+                  wave: "1"
+                - component: gateway
+                  wave: "2"
+          - git:
+              repoURL: https://github.com/your-org/gitops-istio-multicluster
+              revision: HEAD
+              directories:
+                - path: clusters/*
   template:
     metadata:
       name: '{{path.basename}}-{{component}}'
