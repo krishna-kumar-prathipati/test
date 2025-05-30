@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://istio-release.storage.googleapis.com/
-    chart: base
-    targetRevision: 1.23.0
+    repoURL: https://github.com/my-org/my-istio-configs
+    path: charts/istio-base
+    targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
     namespace: istio-system

@@ -6,9 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://istio-release.storage.googleapis.com/
-    chart: gateway
-    targetRevision: 1.23.0
+    
     helm:
       values: |
         service:
