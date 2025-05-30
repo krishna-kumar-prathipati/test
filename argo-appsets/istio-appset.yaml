@@ -16,10 +16,10 @@ spec:
               elements:
                 - component: base
                   wave: "0"
-                # - component: istiod
-                #   wave: "1"
-                # - component: gateway
-                #   wave: "2"
+                - component: istiod
+                  wave: "1"
+                - component: gateway
+                  wave: "2"
   template:
     metadata:
       name: '{{path.basename}}-{{component}}'
