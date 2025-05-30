@@ -1,4 +1,2 @@
-# global:
-#   istioNamespace: istio-system
-# destination:
-#         server: https://kubernetes.default.svc
+global:
+  istioNamespace: istio-system
