@@ -16,10 +16,10 @@ spec:
               elements:
                 - component: istio-base
                   wave: "0"
-                - component: istiod
-                  wave: "1"
-                - component: gateway
-                  wave: "2"
+                # - component: istiod
+                #   wave: "1"
+                # - component: gateway
+                #   wave: "2"
   template:
     metadata:
       name: '{{path.basename}}-{{component}}'
@@ -28,9 +28,9 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://istio-release.storage.googleapis.com
+        repoURL: https://istio-release.storage.googleapis.com/charts
         chart: '{{component}}'
-        targetRevision: 1.23.0
+        targetRevision: 1.23.5
         helm:
           valueFiles:
             - clusters/{{path.basename}}/istio-{{component}}-values.yaml

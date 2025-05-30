@@ -1,23 +1,25 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: istio-ingressgateway
-  namespace: argocd
-spec:
-  project: default
-  source:
-    
-    helm:
-      values: |
-        service:
-          type: LoadBalancer
-        autoscaling:
-          enabled: true
-          minReplicas: 2
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: istio-ingress
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: istio-ingressgateway
+#   namespace: argocd
+# spec:
+#   project: default
+#   source:
+#     repoURL: https://github.com/my-org/my-istio-configs
+#     path: istio-base
+#     targetRevision: HEAD
+#     helm:
+#       values: |
+#         service:
+#           type: LoadBalancer
+#         autoscaling:
+#           enabled: true
+#           minReplicas: 2
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: istio-ingress
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
