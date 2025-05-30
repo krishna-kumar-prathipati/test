@@ -18,7 +18,7 @@ spec:
                 - component: gateway
                   wave: "2"
           - git:
-              repoURL: https://github.com/your-org/gitops-istio-multicluster
+              repoURL: https://github.com/krishna-kumar-prathipati/test
               revision: HEAD
               directories:
                 - path: clusters/*
