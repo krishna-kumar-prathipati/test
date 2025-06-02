@@ -1,43 +1,43 @@
-apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
-metadata:
-  name: istio-multicluster
-  namespace: argocd
-spec:
-  generators:
-    - matrix:
-        generators:
-          - git:
-              repoURL: https://github.com/krishna-kumar-prathipati/test
-              revision: HEAD
-              directories:
-                - path: clusters/*
-          - list:
-              elements:
-                - component: base
-                  wave: "0"
-                - component: istiod
-                  wave: "1"
-                - component: gateway
-                  wave: "2"
-  template:
-    metadata:
-      name: '{{path.basename}}-{{component}}'
-      annotations:
-        argocd.argoproj.io/sync-wave: '{{wave}}'
-    spec:
-      project: default
-      source:
-        repoURL: https://istio-release.storage.googleapis.com/charts
-        chart: '{{component}}'
-        targetRevision: 1.23.5
-        # helm:
-        #   valueFiles:
-        #     - clusters/{{path.basename}}/istio-{{component}}-values.yaml
-      destination:
-        name: '{{path.basename}}'
-        namespace: istio-system
-      syncPolicy: {}
-        # automated:
-        #   prune: true
-        #   selfHeal: true
+# apiVersion: argoproj.io/v1alpha1
+# kind: ApplicationSet
+# metadata:
+#   name: istio-multicluster
+#   namespace: argocd
+# spec:
+#   generators:
+#     - matrix:
+#         generators:
+#           - git:
+#               repoURL: https://github.com/krishna-kumar-prathipati/test
+#               revision: HEAD
+#               directories:
+#                 - path: clusters/*
+#           - list:
+#               elements:
+#                 - component: base
+#                   wave: "0"
+#                 - component: istiod
+#                   wave: "1"
+#                 - component: gateway
+#                   wave: "2"
+#   template:
+#     metadata:
+#       name: '{{path.basename}}-{{component}}'
+#       annotations:
+#         argocd.argoproj.io/sync-wave: '{{wave}}'
+#     spec:
+#       project: default
+#       source:
+#         repoURL: https://istio-release.storage.googleapis.com/charts
+#         chart: '{{component}}'
+#         targetRevision: 1.23.5
+#         # helm:
+#         #   valueFiles:
+#         #     - clusters/{{path.basename}}/istio-{{component}}-values.yaml
+#       destination:
+#         name: '{{path.basename}}'
+#         namespace: istio-system
+#       syncPolicy: {}
+#         # automated:
+#         #   prune: true
+#         #   selfHeal: true
