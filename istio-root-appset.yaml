@@ -1,16 +1,16 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: istio-appsets-root
-#   namespace: argocd
-# spec:
-#   destination:
-#     server: https://kubernetes.default.svc
-#     namespace: argocd
-#   project: default
-#   source:
-#     repoURL: https://github.com/krishna-kumar-prathipati/test
-#     path: argo-appsets
-#     targetRevision: HEAD
-#   syncPolicy:
-#     automated: {}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istio-appsets-root
+  namespace: argocd
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  project: default
+  source:
+    repoURL: https://github.com/krishna-kumar-prathipati/test
+    path: argo-appsets
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}

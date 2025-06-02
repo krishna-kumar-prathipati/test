@@ -16,9 +16,9 @@
 #     chart: base
 #     repoURL: https://istio-release.storage.googleapis.com/charts
 #     targetRevision: main
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       selfHeal: true
-#     syncOptions:
-#       - CreateNamespace=true
+#   syncPolicy: {}
+#     # automated:
+#     #   prune: true
+#     #   selfHeal: true
+#     # syncOptions:
+#     #   - CreateNamespace=true
