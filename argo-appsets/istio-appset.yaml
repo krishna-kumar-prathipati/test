@@ -37,7 +37,7 @@ spec:
       destination:
         name: '{{path.basename}}'
         namespace: istio-system
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
+      syncPolicy: {}
+        # automated:
+        #   prune: true
+        #   selfHeal: true
